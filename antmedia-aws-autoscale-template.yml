@@ -1,3 +1,4 @@
+#Ant Media Server AWS CloudFormation Template
 AWSTemplateFormatVersion: 2010-09-09
 Description: >-
   Ant Media Server AutoScaling CloudFormation Templates.
