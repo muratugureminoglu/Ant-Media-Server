@@ -91,11 +91,6 @@ curl "http://127.0.0.1:3000/api/dashboards/db" \
     -H "Content-Type: application/json" \
     --data-binary "@/tmp/antmediaserver.json"
 
-curl "http://127.0.0.1:3000/api/datasource" \
-    -u "admin:admin" \
-    -H "Content-Type: application/json" \
-    --data-binary "@/tmp/datasource.json"
-
 
 curl -X "POST" "http://l127.0.0.1:3000/api/datasources" \
     -H "Content-Type: application/json" \
