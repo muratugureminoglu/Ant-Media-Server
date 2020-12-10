@@ -9,7 +9,7 @@ DASHBOARD_URL="https://raw.githubusercontent.com/ant-media/Scripts/master/monito
 DATASOURCE_URL="https://raw.githubusercontent.com/ant-media/Scripts/master/monitor/datasource.json"
 
 if [ "$MEMORY" -ge "7" ]; then
-        sed -i '1s/^/-Xms4g\n-Xmx4g\n/' /etc/logstash/jvm.options
+        sed -i -e 's/-Xms1g/-Xms4g/g' -e 's/-Xmx1g/-Xmx4g/g' /etc/logstash/jvm.options
 fi
 
 
@@ -86,16 +86,18 @@ EOF
 wget -q $DASHBOARD_URL -O /tmp/antmediaserver.json
 wget -q $DATASOURCE_URL -O /tmp/antmedia-datasource.json
 
+sleep 5
+
 curl "http://127.0.0.1:3000/api/dashboards/db" \
     -u "admin:admin" \
     -H "Content-Type: application/json" \
-    --data-binary "@/tmp/antmediaserver.json"
+    --data-binary "@/tmp/antmediaserver.json" > /tmp/curl.log
 
 
 curl -X "POST" "http://127.0.0.1:3000/api/datasources" \
     -H "Content-Type: application/json" \
     -u "admin:admin" \
-    --data-binary "@/tmp/antmedia-datasource.json"
+    --data-binary "@/tmp/antmedia-datasource.json" >> /tmp/curl.log 
 
 
 systemctl restart kafka-zookeeper && systemctl restart kafka && systemctl restart logstash && systemctl restart grafana-server
