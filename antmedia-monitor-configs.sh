@@ -97,4 +97,10 @@ curl "http://127.0.0.1:3000/api/datasource" \
   --data-binary "@/tmp/datasource.json"
 
 
+curl -X "POST" "http://l127.0.0.1:3000/api/datasources" \
+    -H "Content-Type: application/json" \
+     --user admin:admin \
+     --data-binary @/tmp/antmedia-datasource.json
+
+
 systemctl restart kafka-zookeeper && systemctl restart kafka && systemctl restart logstash && systemctl restart grafana-server
