@@ -92,7 +92,7 @@ curl "http://127.0.0.1:3000/api/dashboards/db" \
     --data-binary "@/tmp/antmediaserver.json"
 
 
-curl -X "POST" "http://l127.0.0.1:3000/api/datasources" \
+curl -X "POST" "http://127.0.0.1:3000/api/datasources" \
     -H "Content-Type: application/json" \
     -u "admin:admin" \
     --data-binary "@/tmp/antmedia-datasource.json"
