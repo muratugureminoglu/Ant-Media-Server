@@ -11,6 +11,7 @@ AWS_DEFAULT_REGION=""
 S3_BUCKET_NAME=""
 S3_UPLOAD="NO"
 
+mkdir -p $TARGET
 chown -R antmedia:antmedia $TARGET
 
 upload(){
