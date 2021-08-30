@@ -14,6 +14,10 @@ S3_UPLOAD="NO"
 mkdir -p $TARGET
 chown -R antmedia:antmedia $TARGET
 
+if [ -z `which ffmpeg` ]; then
+	apt-get update && apt-get install ffmpeg -y
+fi
+
 upload(){
 
 	if [ -z `which aws` ]; then
