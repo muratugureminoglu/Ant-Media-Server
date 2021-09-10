@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Please make sure you installed FFmpeg before running the script.
+# apt-get install -y ffmpeg
+
+# TARGET : The location of the transcoded file.
+# BITRATE: Bitrate 
+
 INPUT="$1"
 TARGET="/usr/local/antmedia/custom"
 BITRATE="4000k"
@@ -23,7 +29,6 @@ upload(){
 	unzip awscliv2.zip > /dev/null 2>&1 
 	sudo ./aws/install &
 	wait $!
-	echo "AWS Client installed."
 	rm -r aws*
 	fi
 
