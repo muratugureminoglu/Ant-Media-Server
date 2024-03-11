@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: >-
   Ant Media Server AutoScaling CloudFormation Templates.
-  If you have any questions, please just drop a line to contact (at) antmedia.io
+  If you have any questions, please just drop a line to contact (at) antmedia.io 
 Parameters:
   VpcId:
     Type: 'AWS::EC2::VPC::Id'
